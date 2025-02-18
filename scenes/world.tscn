@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b2ynyhrr2ocgm" path="res://assets/art/tilesheet.png" id="1_7e2q5"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_38nyj"]
-[ext_resource type="PackedScene" uid="uid://c0amxumgtp7qs" path="res://prefabs/player.tscn" id="2_wt86c"]
+[ext_resource type="PackedScene" uid="uid://c0amxumgtp7qs" path="res://scenes/prefabs/player.tscn" id="2_wt86c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_krgpy"]
 texture = ExtResource("1_7e2q5")
