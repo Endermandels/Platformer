@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfujert3ny2lk"]
+
+[ext_resource type="Script" path="res://scripts/prefabs/coin.gd" id="1_3ddh7"]
+[ext_resource type="Texture2D" uid="uid://ce2af0rns1nkd" path="res://assets/art/coin.png" id="1_pqt03"]
+[ext_resource type="PackedScene" uid="uid://cu24h5jojdcl" path="res://scenes/components/collectible_component.tscn" id="2_pbapw"]
+[ext_resource type="Resource" uid="uid://dkbw0dpj2byba" path="res://resources/coin_data.tres" id="3_sluhc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lekde"]
+radius = 4.0
+
+[node name="Coin" type="Area2D" node_paths=PackedStringArray("collectible_component")]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_3ddh7")
+collectible_component = NodePath("CollectibleComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lekde")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("1_pqt03")
+
+[node name="CollectibleComponent" parent="." instance=ExtResource("2_pbapw")]
+collectible_data = ExtResource("3_sluhc")

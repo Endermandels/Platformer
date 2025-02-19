@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CollectibleData" load_steps=2 format=3 uid="uid://dkbw0dpj2byba"]
+
+[ext_resource type="Script" path="res://scripts/resources/collectible_resource.gd" id="1_rje6q"]
+
+[resource]
+script = ExtResource("1_rje6q")
+score = 10

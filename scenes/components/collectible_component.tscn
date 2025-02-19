@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu24h5jojdcl"]
+
+[ext_resource type="Script" path="res://scripts/components/collectible_component.gd" id="1_gepdw"]
+
+[node name="CollectibleComponent" type="Node"]
+script = ExtResource("1_gepdw")

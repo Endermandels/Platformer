@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://2hfkm2pu2mb2"]
+
+[ext_resource type="Script" path="res://scripts/components/coin_hurtbox.gd" id="1_vd4oy"]
+
+[node name="CoinHurtbox" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_vd4oy")
