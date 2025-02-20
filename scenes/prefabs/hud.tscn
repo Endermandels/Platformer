@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8y1lrrghthfw"]
+
+[ext_resource type="Theme" uid="uid://deitiiq1aopnw" path="res://assets/themes/hud_theme.tres" id="1_jeix7"]
+[ext_resource type="Script" path="res://scripts/prefabs/hud.gd" id="1_s2imb"]
+[ext_resource type="Resource" uid="uid://cjnugtda8m0pu" path="res://resources/player_signals.tres" id="2_f53xj"]
+
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("score_label")]
+script = ExtResource("1_s2imb")
+score_label = NodePath("CenterContainer/ScoreLabel")
+player_signals = ExtResource("2_f53xj")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 30.0
+offset_bottom = 37.0
+
+[node name="ScoreLabel" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme = ExtResource("1_jeix7")
+theme_override_font_sizes/font_size = 8
+text = "score: 0"

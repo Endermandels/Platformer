@@ -9,6 +9,5 @@ func _ready() -> void:
 
 func handle_collision(coin: Coin):
 	if coin.get_score() > 0:
-		score_component.score += coin.get_score()
-		print('total score: ', score_component.score)
+		score_component.increase_score(coin.get_score())
 	coin.queue_free()

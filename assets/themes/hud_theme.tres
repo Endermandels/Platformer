@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://deitiiq1aopnw"]
+
+[ext_resource type="FontFile" uid="uid://dqv63bflng2q8" path="res://assets/fonts/Bruce Forever.ttf" id="1_nbe6n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_th1sc"]
+bg_color = Color(0.79, 0.3318, 0.3318, 1)
+anti_aliasing = false
+
+[resource]
+default_font = ExtResource("1_nbe6n")
+Label/styles/normal = SubResource("StyleBoxFlat_th1sc")

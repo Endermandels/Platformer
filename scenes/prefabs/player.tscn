@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://c0amxumgtp7qs"]
+[gd_scene load_steps=17 format=3 uid="uid://c0amxumgtp7qs"]
 
 [ext_resource type="Script" path="res://scripts/prefabs/player.gd" id="1_piaun"]
+[ext_resource type="Resource" uid="uid://cjnugtda8m0pu" path="res://resources/player_signals.tres" id="2_jvae6"]
 [ext_resource type="Texture2D" uid="uid://qen0yjaqhr5m" path="res://assets/art/player_spritesheet.png" id="2_vrusr"]
 [ext_resource type="PackedScene" uid="uid://yvybbgl6j7y" path="res://scenes/components/gravity_component.tscn" id="3_uoic6"]
 [ext_resource type="PackedScene" uid="uid://uarehsxw4q72" path="res://scenes/components/input_component.tscn" id="4_r8hpx"]
@@ -72,7 +73,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_u0mgv"]
 radius = 5.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anim_player", "gravity_component", "input_component", "movement_component", "animation_component", "jump_component")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anim_player", "gravity_component", "input_component", "movement_component", "animation_component", "jump_component", "score_component")]
 script = ExtResource("1_piaun")
 anim_player = NodePath("AnimationPlayer")
 gravity_component = NodePath("GravityComponent")
@@ -80,6 +81,8 @@ input_component = NodePath("InputComponent")
 movement_component = NodePath("MovementComponent")
 animation_component = NodePath("AnimationComponent")
 jump_component = NodePath("JumpComponent")
+score_component = NodePath("ScoreComponent")
+player_signals = ExtResource("2_jvae6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_vrusr")
@@ -104,6 +107,7 @@ sprite = NodePath("../Sprite2D")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="JumpComponent" parent="." instance=ExtResource("7_074eu")]
+jump_velocity = 350.0
 
 [node name="ScoreComponent" parent="." instance=ExtResource("8_qn2wk")]
 
