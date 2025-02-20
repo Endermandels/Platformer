@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://cvm481gnsxqfx"]
+[gd_scene load_steps=11 format=4 uid="uid://cvm481gnsxqfx"]
 
 [ext_resource type="Texture2D" uid="uid://b2ynyhrr2ocgm" path="res://assets/art/tilesheet.png" id="1_7e2q5"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_38nyj"]
 [ext_resource type="PackedScene" uid="uid://c0amxumgtp7qs" path="res://scenes/prefabs/player.tscn" id="2_wt86c"]
 [ext_resource type="PackedScene" uid="uid://dfujert3ny2lk" path="res://scenes/prefabs/coin.tscn" id="4_6y6mq"]
 [ext_resource type="PackedScene" uid="uid://b8y1lrrghthfw" path="res://scenes/prefabs/hud.tscn" id="5_bfvpq"]
+[ext_resource type="PackedScene" uid="uid://mk0nrbs8w4ay" path="res://scenes/prefabs/death_hitbox.tscn" id="6_m2rv7"]
+[ext_resource type="AudioStream" uid="uid://bhirj5w5m5xs8" path="res://assets/sfx/Cloud Dancer.mp3" id="7_4mxo4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_krgpy"]
 texture = ExtResource("1_7e2q5")
@@ -82,6 +84,9 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "grass 0"
 terrain_set_0/terrain_0/color = Color(1, 0.113725, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_krgpy")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2c3a"]
+size = Vector2(1396, 336)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_38nyj")
@@ -211,3 +216,15 @@ position = Vector2(327, 30)
 position = Vector2(338, 30)
 
 [node name="HUD" parent="." instance=ExtResource("5_bfvpq")]
+
+[node name="DeathHitbox" parent="." instance=ExtResource("6_m2rv7")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathHitbox"]
+position = Vector2(360, 383)
+shape = SubResource("RectangleShape2D_r2c3a")
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_4mxo4")
+volume_db = -9.369
+autoplay = true
+parameters/looping = true

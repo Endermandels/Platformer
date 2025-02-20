@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://2hfkm2pu2mb2"]
+[gd_scene load_steps=3 format=3 uid="uid://2hfkm2pu2mb2"]
 
 [ext_resource type="Script" path="res://scripts/components/coin_hurtbox.gd" id="1_vd4oy"]
+[ext_resource type="AudioStream" uid="uid://bu0exux7gf421" path="res://assets/sfx/pickupCoin.wav" id="2_578nk"]
 
-[node name="CoinHurtbox" type="Area2D"]
+[node name="CoinHurtbox" type="Area2D" node_paths=PackedStringArray("pick_up_coin_sfx")]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_vd4oy")
+pick_up_coin_sfx = NodePath("PickUpCoin")
+
+[node name="PickUpCoin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_578nk")
+volume_db = -9.37

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c0amxumgtp7qs"]
+[gd_scene load_steps=19 format=3 uid="uid://c0amxumgtp7qs"]
 
 [ext_resource type="Script" path="res://scripts/prefabs/player.gd" id="1_piaun"]
 [ext_resource type="Resource" uid="uid://cjnugtda8m0pu" path="res://resources/player_signals.tres" id="2_jvae6"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://4w0ps5wmyg12" path="res://scenes/components/jump_component.tscn" id="7_074eu"]
 [ext_resource type="PackedScene" uid="uid://dltmr8t7vvt7f" path="res://scenes/components/score_component.tscn" id="8_qn2wk"]
 [ext_resource type="PackedScene" uid="uid://2hfkm2pu2mb2" path="res://scenes/components/coin_hurtbox.tscn" id="8_ugjvr"]
+[ext_resource type="PackedScene" uid="uid://6ek0j0xwcn40" path="res://scenes/prefabs/death_hurtbox.tscn" id="11_awnp6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsl6l"]
 size = Vector2(4, 7)
@@ -73,9 +74,13 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_u0mgv"]
 radius = 5.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anim_player", "gravity_component", "input_component", "movement_component", "animation_component", "jump_component", "score_component")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_240ac"]
+radius = 3.16228
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anim_player", "death_hurtbox", "gravity_component", "input_component", "movement_component", "animation_component", "jump_component", "score_component")]
 script = ExtResource("1_piaun")
 anim_player = NodePath("AnimationPlayer")
+death_hurtbox = NodePath("DeathHurtbox")
 gravity_component = NodePath("GravityComponent")
 input_component = NodePath("InputComponent")
 movement_component = NodePath("MovementComponent")
@@ -110,9 +115,15 @@ anim_player = NodePath("../AnimationPlayer")
 jump_velocity = 350.0
 
 [node name="ScoreComponent" parent="." instance=ExtResource("8_qn2wk")]
+goal_score = 350
 
 [node name="CoinHurtbox" parent="." node_paths=PackedStringArray("score_component") instance=ExtResource("8_ugjvr")]
 score_component = NodePath("../ScoreComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CoinHurtbox"]
 shape = SubResource("CircleShape2D_u0mgv")
+
+[node name="DeathHurtbox" parent="." instance=ExtResource("11_awnp6")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathHurtbox"]
+shape = SubResource("CircleShape2D_240ac")

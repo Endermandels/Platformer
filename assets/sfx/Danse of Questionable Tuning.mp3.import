@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bvw84rwitfg2m"
+path="res://.godot/imported/Danse of Questionable Tuning.mp3-255d80657ae16a4467a8d604481675d7.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Danse of Questionable Tuning.mp3"
+dest_files=["res://.godot/imported/Danse of Questionable Tuning.mp3-255d80657ae16a4467a8d604481675d7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
