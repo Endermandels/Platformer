@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfo8ayo1ujx1d"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_ga0r4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0r07k"]
+bg_color = Color(0.916604, 0.338548, 0.438432, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="MainMenu" type="Node" node_paths=PackedStringArray("play_btn", "quit_btn")]
+script = ExtResource("1_ga0r4")
+play_btn = NodePath("VBoxContainer/Play")
+quit_btn = NodePath("VBoxContainer/Quit")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 324.0
+offset_bottom = 184.0
+color = Color(0.276031, 0.43026, 0.423023, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_0r07k")
+text = "PlatFormer"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 20.0
+offset_top = 81.0
+offset_right = 300.0
+offset_bottom = 162.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_top = 90.0
+offset_right = 320.0
+offset_bottom = 153.0
+theme_override_constants/separation = 7
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "PLAY"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "QUIT"
